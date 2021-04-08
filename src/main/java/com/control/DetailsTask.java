@@ -7,17 +7,18 @@ public class DetailsTask {
     private String status;
     private int priority;
     private String description;
-    Date dateStart = new Date();
-    Date dateEnd = new Date();
+    Date dateStart;
+    Date dateEnd;
 
     DetailsTask() {
-        this.status = "Begin";
-        this.priority = 1;
+        status = "Begin";
+        priority = 1;
+        dateStart = new Date();
+        dateEnd = null;
     }
     DetailsTask(long idTask) {
+        this();
         this.idTask = idTask;
-        this.status = "Begin";
-        this.priority = 1;
     }
 
     DetailsTask(long idTask, int priority) {
@@ -67,6 +68,14 @@ public class DetailsTask {
 
     public String getDescription() {
         return description;
+    }
+
+    public Date getDateStart() {
+        return dateStart;
+    }
+
+    public Date getDateEnd() {
+        return dateEnd;
     }
 
     @Override

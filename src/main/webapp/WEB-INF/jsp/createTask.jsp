@@ -9,7 +9,7 @@
         <h1>Create Task</h1>
         <form:form action="/createTask" method="post" modelAttribute="task">
             <form:label path="idTask">Id: </form:label>
-            <form:input path="idTask" /><br/>
+            <form:input path="idTask" readonly="true"/><br/>
 
             <form:label path="description">Description: </form:label>
             <form:input path="description" /><br/>

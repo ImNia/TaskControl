@@ -9,6 +9,10 @@
             <tr>
             <td>${taskCur.idTask}</td>
             <td>${taskCur.description}</td>
+            <td><form action="/task/${taskCur.idTask}" method="get">
+                <input type="submit" value="edit"/>
+                </form>
+            </td>
             </tr>
         </table>
         </c:forEach>

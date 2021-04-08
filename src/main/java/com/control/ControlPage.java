@@ -15,19 +15,26 @@ public class ControlPage {
         return new ModelAndView("pageTask");
     }
 
-    @GetMapping("/createTask")
+    @GetMapping(value="/createTask")
     public String descriptionNewTaskForm(Model model) {
-        model.addAttribute("task", new DetailsTask());
+        model.addAttribute("task", new DetailsTask(allTask.size() + 1));
         System.out.println("In description GET");
         return "createTask";
     }
 
-    @PostMapping("/createTask")
-    public String descriptionNewTask(@ModelAttribute("task") DetailsTask task, Model model) {
+    @PostMapping(value="/createTask")
+    public ModelAndView descriptionNewTask(@ModelAttribute("task") DetailsTask task, Model model) {
         System.out.println(task);
         model.addAttribute("task", task);
         allTask.add(task);
         System.out.println("In description POST: " + task.getIdTask() + " : " + task.getDescription());
-        return "createTask" ;
+        return HomePage.home();
+    }
+
+    @GetMapping(value="/task/{id}")
+    public String taskPage(@PathVariable int id, Model model){
+        System.out.println("We here " + id);
+        model.addAttribute("task", allTask.get(--id));
+        return "taskPage";
     }
 }
