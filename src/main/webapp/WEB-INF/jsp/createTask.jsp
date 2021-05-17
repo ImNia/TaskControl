@@ -11,8 +11,19 @@
             <form:label path="idTask">Id: </form:label>
             <form:input path="idTask" readonly="true"/><br/>
 
+            <form:label path="status">Status: </form:label>
+            <form:input path="status" readonly="true"/><br/>
+            <form:label path="priority">Priority: </form:label>
+            <form:input path="priority" /><br/>
+
             <form:label path="description">Description: </form:label>
             <form:input path="description" /><br/>
+
+            <form:label path="dateStart">Date Start: </form:label>
+            <form:input path="dateStart" /><br/>
+
+            <form:label path="dateEnd">Date End: </form:label>
+            <form:input path="dateEnd" /><br/>
 
             <form:button>Create</form:button>
         </form:form>

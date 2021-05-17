@@ -1,5 +1,6 @@
 package com.control;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DetailsTask {
@@ -14,7 +15,7 @@ public class DetailsTask {
         status = "Begin";
         priority = 1;
         dateStart = new Date();
-        dateEnd = null;
+        dateEnd = new Date();
     }
     DetailsTask(long idTask) {
         this();
@@ -54,6 +55,22 @@ public class DetailsTask {
         this.description = description;
     }
 
+    public void setDateStart(String date) {
+        try {
+            dateStart = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        } catch (Exception ex) {
+            dateStart = new Date();
+        }
+    }
+
+    public void setDateEnd(String date) {
+        try {
+            dateEnd = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        } catch (Exception ex) {
+            dateEnd = new Date();
+        }
+    }
+
     public long getIdTask() {
         return idTask;
     }
@@ -70,12 +87,12 @@ public class DetailsTask {
         return description;
     }
 
-    public Date getDateStart() {
-        return dateStart;
+    public String getDateStart() {
+        return new SimpleDateFormat("dd/MM/yyyy").format(dateStart);
     }
 
-    public Date getDateEnd() {
-        return dateEnd;
+    public String getDateEnd() {
+        return new SimpleDateFormat("dd/MM/yyyy").format(dateEnd);
     }
 
     @Override
