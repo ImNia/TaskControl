@@ -23,12 +23,13 @@ public class ControlPage {
     }
 
     @PostMapping(value="/createTask")
-    public ModelAndView descriptionNewTask(@ModelAttribute("task") DetailsTask task, Model model) {
+    public String descriptionNewTask(@ModelAttribute("task") DetailsTask task, Model model) {
         System.out.println(task);
         model.addAttribute("task", task);
         allTask.add(task);
         System.out.println("In description POST: " + task.getIdTask() + " : " + task.getDescription());
-        return HomePage.home();
+        return "redirect:/home";
+        //return HomePage.home();
     }
 
     @GetMapping(value="/task/{id}")
